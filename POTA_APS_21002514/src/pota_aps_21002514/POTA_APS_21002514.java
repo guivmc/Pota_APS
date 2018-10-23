@@ -45,8 +45,9 @@ public class POTA_APS_21002514
 
                     novoN = i;
                     
-                    media[pos]++;
+                  
                 }
+                 media[pos]++;
             }
             n = novoN;
         } while (n > 0);
@@ -77,8 +78,8 @@ public class POTA_APS_21002514
                
                j--;
                
-               media[pos]++;
-           }
+            }
+            media[pos]++;
         }
         
         double fim = System.currentTimeMillis() - start;
@@ -103,8 +104,9 @@ public class POTA_APS_21002514
                 {
                     smallest = j;
                     
-                    media[pos]++;
+                    
                 }
+                 media[pos]++;
             }
 
             int aux = vector[i];
@@ -181,7 +183,7 @@ public class POTA_APS_21002514
                 
                 i++;
                 
-                media[pos]++;
+                
             } 
             else 
             {
@@ -189,8 +191,9 @@ public class POTA_APS_21002514
                 
                 j--;
                 
-                media[pos]++;
+            
             }
+             media[pos]++;
         }
     }
     
@@ -226,12 +229,12 @@ public class POTA_APS_21002514
             if(vector[i] <= aux) 
             {
                 i++;
-                media[pos]++;
+               
             }
             else if(aux < vector[j])
             {
                 j--;
-                media[pos]++;
+                
             }
             else
             {
@@ -240,8 +243,9 @@ public class POTA_APS_21002514
                 vector[j] = swap;
                 i++;
                 j--;
-                media[pos]++;
+                
             }
+             media[pos]++;
         }
         vector[head] = vector[j];
         vector[j] = aux;
