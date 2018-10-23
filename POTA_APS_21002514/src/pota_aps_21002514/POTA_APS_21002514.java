@@ -262,28 +262,8 @@ public class POTA_APS_21002514
         return vector;
     }
     public static void main(String[] args)
-    {
-//        int[] Arr = {3, 54, 6, 7, 5, 9};
-//        
-//        CallQuickSort(Arr);
-//        
-//        for (int i = 0; i < Arr.length; i++) 
-//        {
-//            System.out.println(Arr[i] + " - ");
-//        }
-        
-//        for (int i = 100; i < 1000000; i *= 10) 
-//        {
-//            
-//            System.out.println(BubbleSort(random(i)) + " - quantidade:" + i + "\n");
-//            System.out.println(CallMergeSort(random(i)) + " - quantidade:" + i + "\n");
-//            //System.out.println(CocktailSort(random(i))+ " - quantidade:" + i + "\n");
-//            System.out.println(InsertionSort(random(i))+ " - quantidade:" + i + "\n");
-//            System.out.println(SelectionSort(random(i))+ " - quantidade:" + i + "\n");
-//            //System.out.println(ShellSort(random(i))+ " - quantidade:" + i + "\n");
-//            System.out.println(CallQuickSort(random(i)) + " - quantidade:" + i + "\n");
-//        }
-        
+    {      
+        //Bubble
         for (int i = 0; i < media.length; i++) 
         {
                BubbleSort(random(5), i);
@@ -336,8 +316,232 @@ public class POTA_APS_21002514
         }
         System.out.println("Bubble media 1000 = " + Media());
         
+         System.out.println("------------------------");
+         
+        //Selection
         media = new int[6];
         
-    }
-    
+        for (int i = 0; i < media.length; i++) 
+        {
+               SelectionSort(random(5), i);
+        }
+     
+        System.out.println("Selection media 5 = " + Media());
+        
+        media = new int[6];
+        
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               SelectionSort(random(10), i);
+        }
+        
+        System.out.println("Selection media 10 = " + Media());
+        
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               SelectionSort(random(50), i);
+        }
+
+        System.out.println("Selection media 50 = " + Media());
+        
+        media = new int[6];
+                
+        for (int i = 0; i < media.length; i++) 
+        {
+               SelectionSort(random(100), i);
+        }
+      
+        System.out.println("Selection media 100 = " + Media());
+        
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               SelectionSort(random(1000), i);
+        }
+
+        System.out.println("Selection media 1000 = " + Media());
+        
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               SelectionSort(random(10000), i);
+        }
+        System.out.println("Selection media 1000 = " + Media());
+        
+        System.out.println("------------------------");
+        
+        //Insertion
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               InsertionSort(random(5), i);
+        }
+     
+        System.out.println("Insertion media 5 = " + Media());
+        
+        media = new int[6];
+        
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               InsertionSort(random(10), i);
+        }
+        
+        System.out.println("Insertion media 10 = " + Media());
+        
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               InsertionSort(random(50), i);
+        }
+
+        System.out.println("Insertion media 50 = " + Media());
+        
+        media = new int[6];
+                
+        for (int i = 0; i < media.length; i++) 
+        {
+               InsertionSort(random(100), i);
+        }
+      
+        System.out.println("Insertion media 100 = " + Media());
+        
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               InsertionSort(random(1000), i);
+        }
+
+        System.out.println("Insertion media 1000 = " + Media());
+        
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               InsertionSort(random(10000), i);
+        }
+        System.out.println("Insertion media 1000 = " + Media());
+        
+        System.out.println("------------------------");
+        
+        //Merge
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               CallMergeSort(random(5), i);
+        }
+     
+        System.out.println("Merge media 5 = " + Media());
+        
+        media = new int[6];
+        
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               CallMergeSort(random(10), i);
+        }
+        
+        System.out.println("Merge media 10 = " + Media());
+        
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               CallMergeSort(random(50), i);
+        }
+
+        System.out.println("Merge media 50 = " + Media());
+        
+        media = new int[6];
+                
+        for (int i = 0; i < media.length; i++) 
+        {
+               CallMergeSort(random(100), i);
+        }
+      
+        System.out.println("Merge media 100 = " + Media());
+        
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               CallMergeSort(random(1000), i);
+        }
+
+        System.out.println("Merge media 1000 = " + Media());
+        
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               CallMergeSort(random(10000), i);
+        }
+        System.out.println("Merge media 1000 = " + Media());
+        
+        System.out.println("------------------------");
+        
+        //Quick
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               CallQuickSort(random(5), i);
+        }
+     
+        System.out.println("Quick media 5 = " + Media());
+        
+        media = new int[6];
+        
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               CallQuickSort(random(10), i);
+        }
+        
+        System.out.println("Quick media 10 = " + Media());
+        
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               CallQuickSort(random(50), i);
+        }
+
+        System.out.println("Quick media 50 = " + Media());
+        
+        media = new int[6];
+                
+        for (int i = 0; i < media.length; i++) 
+        {
+               CallQuickSort(random(100), i);
+        }
+      
+        System.out.println("Quick media 100 = " + Media());
+        
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               CallQuickSort(random(1000), i);
+        }
+
+        System.out.println("Quick media 1000 = " + Media());
+        
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               CallQuickSort(random(10000), i);
+        }
+        System.out.println("Quick media 1000 = " + Media());
+    }   
 }
