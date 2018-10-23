@@ -8,14 +8,22 @@ import java.util.Random;
 public class POTA_APS_21002514
 {
 
-   public static int bubble = 0, insertion = 0, selection = 0, merge = 0, quick = 0;
+   public static int[] media = new int[6];
     
-   public static void reset()
+   public static float Media()
    {
-       bubble = insertion = selection = merge = quick = 0;
+       float result = 0;
+       for (int i = 0; i < media.length; i++)
+       {
+           result += media[i];
+       }
+       
+       result /=  6;
+       
+       return result;
    }
     
-   public static String BubbleSort(int[] vector)
+   public static String BubbleSort(int[] vector, int pos)
     {
         double start = System.currentTimeMillis();
         int n = vector.length;
@@ -37,7 +45,7 @@ public class POTA_APS_21002514
 
                     novoN = i;
                     
-                    bubble++;
+                    media[pos]++;
                 }
             }
             n = novoN;
@@ -49,7 +57,7 @@ public class POTA_APS_21002514
         return "\nTempo Bubble " + fim;
     }
     
-    public static String InsertionSort(int[] vector)
+    public static String InsertionSort(int[] vector, int pos)
     {
         double start = System.currentTimeMillis();
         
@@ -69,7 +77,7 @@ public class POTA_APS_21002514
                
                j--;
                
-               insertion++;
+               media[pos]++;
            }
         }
         
@@ -79,7 +87,7 @@ public class POTA_APS_21002514
         return "\nTempo Insert " + fim;
     }
     
-    public static String SelectionSort(int[] vector)
+    public static String SelectionSort(int[] vector, int pos)
     {
         int smallest = 0;
         
@@ -95,7 +103,7 @@ public class POTA_APS_21002514
                 {
                     smallest = j;
                     
-                    selection++;
+                    media[pos]++;
                 }
             }
 
@@ -113,13 +121,13 @@ public class POTA_APS_21002514
         return "\nTempo Select " + fim;
     }
     
-    public static String CallMergeSort(int vector[])
+    public static String CallMergeSort(int vector[], int pos)
     {
         
         double start = System.currentTimeMillis();
         
         
-         MergeSort(vector, 0, (vector.length - 1));
+         MergeSort(vector, 0, (vector.length - 1), pos);
         
         double fim = System.currentTimeMillis() - start;
         
@@ -128,24 +136,24 @@ public class POTA_APS_21002514
         return "\nTempo Merge " + fim;
     }
     
-    public static int[] MergeSort(int vector[], int head, int tail)
+    public static int[] MergeSort(int vector[], int head, int tail, int pos)
     {
         if (head < tail) 
         {
             int middle = (head + tail) / 2;
             
-            MergeSort(vector, head, middle);
+            MergeSort(vector, head, middle, pos);
             
-            MergeSort(vector, middle + 1, tail);
+            MergeSort(vector, middle + 1, tail, pos);
             
-            InterimMergeSort(vector, head, middle, tail);
+            InterimMergeSort(vector, head, middle, tail, pos);
             
         }
         
         return vector;
     }
 
-    public static void InterimMergeSort(int[] vector, int head, int middle, int tail) 
+    public static void InterimMergeSort(int[] vector, int head, int middle, int tail, int pos) 
     {
         int[] vectorB = vector.clone();
         
@@ -173,7 +181,7 @@ public class POTA_APS_21002514
                 
                 i++;
                 
-                merge++;
+                media[pos]++;
             } 
             else 
             {
@@ -181,35 +189,35 @@ public class POTA_APS_21002514
                 
                 j--;
                 
-                merge++;
+                media[pos]++;
             }
         }
     }
     
-    public static String CallQuickSort(int[] vector)
+    public static String CallQuickSort(int[] vector, int pos)
     {
         double start = System.currentTimeMillis();
                 
-        QuickSort(vector, 0, (vector.length - 1));
+        QuickSort(vector, 0, (vector.length - 1), pos);
         
         double fim = System.currentTimeMillis() - start;
         
         return "\nTempo Quick " + fim;
     }
 
-    public static int[] QuickSort(int[] vector, int head, int tail)
+    public static int[] QuickSort(int[] vector, int head, int tail, int pos)
     {
         if(head < tail)
         {
-            int middle = IterimQuickSort(vector, head, tail);
-            QuickSort(vector, head, middle - 1);
-            QuickSort(vector, middle + 1, tail);
+            int middle = IterimQuickSort(vector, head, tail, pos);
+            QuickSort(vector, head, middle - 1, pos);
+            QuickSort(vector, middle + 1, tail, pos);
         }
         
         return vector;
     }
     
-    public static int IterimQuickSort(int[] vector, int head, int tail)
+    public static int IterimQuickSort(int[] vector, int head, int tail, int pos)
     {
         int i = head + 1, j = tail, aux = vector[head];
         
@@ -218,12 +226,12 @@ public class POTA_APS_21002514
             if(vector[i] <= aux) 
             {
                 i++;
-                quick++;
+                media[pos]++;
             }
             else if(aux < vector[j])
             {
                 j--;
-                quick++;
+                media[pos]++;
             }
             else
             {
@@ -232,7 +240,7 @@ public class POTA_APS_21002514
                 vector[j] = swap;
                 i++;
                 j--;
-                quick++;
+                media[pos]++;
             }
         }
         vector[head] = vector[j];
@@ -264,18 +272,71 @@ public class POTA_APS_21002514
 //            System.out.println(Arr[i] + " - ");
 //        }
         
-        for (int i = 100; i < 1000000; i *= 10) 
+//        for (int i = 100; i < 1000000; i *= 10) 
+//        {
+//            
+//            System.out.println(BubbleSort(random(i)) + " - quantidade:" + i + "\n");
+//            System.out.println(CallMergeSort(random(i)) + " - quantidade:" + i + "\n");
+//            //System.out.println(CocktailSort(random(i))+ " - quantidade:" + i + "\n");
+//            System.out.println(InsertionSort(random(i))+ " - quantidade:" + i + "\n");
+//            System.out.println(SelectionSort(random(i))+ " - quantidade:" + i + "\n");
+//            //System.out.println(ShellSort(random(i))+ " - quantidade:" + i + "\n");
+//            System.out.println(CallQuickSort(random(i)) + " - quantidade:" + i + "\n");
+//        }
+        
+        for (int i = 0; i < media.length; i++) 
         {
-            
-            System.out.println(BubbleSort(random(i)) + " - quantidade:" + i + "\n");
-            System.out.println(CallMergeSort(random(i)) + " - quantidade:" + i + "\n");
-            //System.out.println(CocktailSort(random(i))+ " - quantidade:" + i + "\n");
-            System.out.println(InsertionSort(random(i))+ " - quantidade:" + i + "\n");
-            System.out.println(SelectionSort(random(i))+ " - quantidade:" + i + "\n");
-            //System.out.println(ShellSort(random(i))+ " - quantidade:" + i + "\n");
-            System.out.println(CallQuickSort(random(i)) + " - quantidade:" + i + "\n");
+               BubbleSort(random(5), i);
+        }
+     
+        System.out.println("Bubble media 5 = " + Media());
+        
+        media = new int[6];
+        
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               BubbleSort(random(10), i);
         }
         
+        System.out.println("Bubble media 10 = " + Media());
+        
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               BubbleSort(random(50), i);
+        }
+
+        System.out.println("Bubble media 50 = " + Media());
+        
+        media = new int[6];
+                
+        for (int i = 0; i < media.length; i++) 
+        {
+               BubbleSort(random(100), i);
+        }
+      
+        System.out.println("Bubble media 100 = " + Media());
+        
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               BubbleSort(random(1000), i);
+        }
+
+        System.out.println("Bubble media 1000 = " + Media());
+        
+        media = new int[6];
+        
+        for (int i = 0; i < media.length; i++) 
+        {
+               BubbleSort(random(10000), i);
+        }
+        System.out.println("Bubble media 1000 = " + Media());
+        
+        media = new int[6];
         
     }
     
